@@ -1,16 +1,19 @@
 package com.AustinShootTheJ;
 
+import java.util.Scanner;
+
 public class Hamburger {
 
    private double basePrice;
    private double totalPrice;
-   private boolean isDeluxe = false;
+   private boolean isDeluxe;
    private Rolls rolls;
 
 
     public Hamburger(double basePrice) {
         this.basePrice = basePrice;
         this.totalPrice = this.basePrice;
+        this.addToppings(this);
 
     }
 
@@ -18,13 +21,17 @@ public class Hamburger {
         this.basePrice = basePrice;
         this.totalPrice = this.basePrice;
         this.isDeluxe = isDeluxe;
+        this.rolls = rolls;
+        this.addToppings(this);
     }
 
-    public Hamburger(Rolls rolls){
+    public Hamburger(){
         this.basePrice = 4;
         this.totalPrice = this.basePrice;
         this.isDeluxe = false;
-        this.rolls = rolls;
+        Rolls regularRoll = new Rolls();
+        this.setRolls(regularRoll);
+        this.addToppings(this);
 
     }
 
@@ -62,17 +69,39 @@ public class Hamburger {
 
     }
 
+
+    public void addCarrots(){
+
+        Carrots carrots = new Carrots();
+        this.setTotalPrice(this.getTotalPrice() + carrots.getCost());
+
+    }
+
+
+    public void addKale(){
+
+        Kale kale = new Kale();
+        this.setTotalPrice(this.getTotalPrice() + kale.getCost());
+
+    }
+
+
     public boolean isDeluxe() {
-        return isDeluxe;
+        return this.isDeluxe;
     }
 
     public double getTotalPrice() {
 
-        return totalPrice;
+        return this.totalPrice;
+    }
+
+    public void setRolls(Rolls rolls) {
+        this.rolls = rolls;
     }
 
     public void displayTotalPrice(){
         System.out.println("Your total is: " + totalPrice);
+        this.rolls.getType();
     }
 
     public double getBasePrice() {
@@ -82,4 +111,60 @@ public class Hamburger {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
+
+
+    public  Hamburger addToppings(Hamburger hamburger){
+        if(hamburger.isDeluxe() == false) {
+            Scanner in = new Scanner(System.in);
+            char answer;
+            do {
+                System.out.println("Would you like to add toppings? Y/N");
+                answer = in.nextLine().charAt(0);
+                if(answer == 'y' || answer == 'Y') {
+
+                    System.out.println("What would you like to add? L, T, K, M");
+                    Scanner in2 = new Scanner(System.in);
+                    char answer2 = in2.nextLine().charAt(0);
+                    switch (answer2) {
+                        case 'l':
+                        case 'L':
+                            hamburger.addLettuce();
+                            break;
+
+                        case 't':
+                        case 'T':
+                            hamburger.addTomato();
+                            break;
+
+                        case 'K':
+                        case 'k':
+                            hamburger.addKetchup();
+                            break;
+
+                        case 'm':
+                        case 'M':
+                            hamburger.addMustard();
+                            break;
+
+                        default:
+                            System.out.println("No toppings added");
+                            break;
+
+
+                    }
+                } else{break;}
+
+            } while (answer == 'y' || answer == 'Y');
+
+        }
+
+
+
+        return hamburger;
+
+    }
+
+
+
+
 }

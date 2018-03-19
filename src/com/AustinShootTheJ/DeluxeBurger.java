@@ -4,6 +4,7 @@ public class DeluxeBurger extends Hamburger{
 
     public DeluxeBurger(){
         super(7.00,true);
+
     }
 
     @Override
