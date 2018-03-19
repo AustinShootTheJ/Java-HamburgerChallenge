@@ -39,6 +39,7 @@ public class Hamburger {
 
         Lettuce lettuce = new Lettuce();
         this.totalPrice = this.totalPrice + lettuce.getCost();
+        System.out.println("Lettuce added for " + lettuce.getCost());
 
 
     }
@@ -47,6 +48,7 @@ public class Hamburger {
 
         Tomato tomato = new Tomato();
         this.totalPrice = this.totalPrice + tomato.getCost();
+        System.out.println("Tomato added for " + tomato.getCost());
 
 
     }
@@ -56,6 +58,7 @@ public class Hamburger {
 
         Ketchup ketchup = new Ketchup();
         this.totalPrice = this.totalPrice + ketchup.getCost();
+        System.out.println("Ketchup added for " + ketchup.getCost());
 
 
     }
@@ -65,6 +68,7 @@ public class Hamburger {
 
         Mustard mustard = new Mustard();
         this.totalPrice = this.totalPrice + mustard.getCost();
+        System.out.println("Mustard added for " + mustard.getCost());
 
 
     }
@@ -74,6 +78,7 @@ public class Hamburger {
 
         Carrots carrots = new Carrots();
         this.setTotalPrice(this.getTotalPrice() + carrots.getCost());
+        System.out.println("Carrots added for " + carrots.getCost());
 
     }
 
@@ -82,6 +87,7 @@ public class Hamburger {
 
         Kale kale = new Kale();
         this.setTotalPrice(this.getTotalPrice() + kale.getCost());
+        System.out.println("Kale added for " + kale.getCost());
 
     }
 
@@ -101,7 +107,7 @@ public class Hamburger {
 
     public void displayTotalPrice(){
         System.out.println("Your total is: " + totalPrice);
-        this.rolls.getType();
+
     }
 
     public double getBasePrice() {
