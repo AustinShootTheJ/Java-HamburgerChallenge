@@ -45,56 +45,7 @@ public class Main {
     }
 
 
-    public static Hamburger addToppings(Hamburger hamburger){
-        if(hamburger.isDeluxe() == false) {
-            Scanner in = new Scanner(System.in);
-            char answer;
-            do {
-                System.out.println("Would you like to add toppings? Y/N");
-                answer = in.nextLine().charAt(0);
-                if(answer == 'y' || answer == 'Y') {
-
-                    System.out.println("What would you like to add? L, T, K, M");
-                    Scanner in2 = new Scanner(System.in);
-                    char answer2 = in2.nextLine().charAt(0);
-                    switch (answer2) {
-                        case 'l':
-                        case 'L':
-                            hamburger.addLettuce();
-                            break;
-
-                        case 't':
-                        case 'T':
-                            hamburger.addTomato();
-                            break;
-
-                        case 'K':
-                        case 'k':
-                            hamburger.addKetchup();
-                            break;
-
-                        case 'm':
-                        case 'M':
-                            hamburger.addMustard();
-                            break;
-
-                        default:
-                            System.out.println("No toppings added");
-                            break;
-
-
-                    }
-                } else{break;}
-
-            } while (answer == 'y' || answer == 'Y');
-
-        }
-
-
-
-        return hamburger;
-
-    }
+    
 
 
 
